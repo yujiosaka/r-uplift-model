@@ -1,4 +1,4 @@
-source("easy_uplift_tree.R")
+source("../R/easy_uplift_tree.R")
 
 ## データの用意
 ##
