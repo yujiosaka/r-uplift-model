@@ -218,35 +218,3 @@ classify.UpliftTreeNode <- function(tree, row){
     return(classify(branch,row))
   }
 }
-
-
-update.UpliftTreeNode <- function(node, l.branch=NULL, r.branch=NULL, data=NULL, score=NULL){
-  ##
-  ## update Uplift Tree Node
-  ##
-  ## Argument:
-  ##   node: UpliftTreeNode
-  ##   l.brahcn: UpliftTreeNode or NULL
-  ##   r.branch: UpliftTreeNode or NULL
-  ##   data: data.frame or NULL
-  ##
-  node$l.branch <- l.branch
-  node$r.branch <- r.branch
-  node$data <- data
-  node$score <- score
-  node
-}
-
-
-pruneUpliftTree <- function(tree){
-  if (is.null(tree$r.branch$data)){
-    pruneUpliftTree(tree$r.branch)
-  }
-  if (is.null(tree$l.branch$data)){
-    pruneUpliftTree(tree$r.branch)
-  }
-  
-  if(!is.null(tree$r.branch$data) && !is.null(tree$l.branch$data)){
-
-  }
-}
