@@ -1,1 +1,1 @@
-exportPattern("^[[:alpha:]]+")
+exportPattern(divideSet,interactionScore,toDataFrame,classify,print,createUpliftTreeNodeData,divideSet.UpliftTreeNodeData,interactionScore.UpliftTreeNodeData,createUpliftTreeNode,buildUpliftTree,print.UpliftTreeNode,toDataFrame.UpliftTreeNode,classify.UpliftTreeNode)
