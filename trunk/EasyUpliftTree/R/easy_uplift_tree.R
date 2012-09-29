@@ -4,16 +4,28 @@ divideSet <- function(...){
   UseMethod("divideSet")
 }
 
+divideSet.default <- function(...){
+}
+
 interactionScore <- function(...){
   UseMethod("interactionScore")
+}
+
+interactionScore.default <- function(...){
 }
 
 toDataFrame <- function(...){
   UseMethod("toDataFrame")
 }
 
+toDataFrame.default <- function(...){
+}
+
 classify <- function(...){
   UseMethod("classify")
+}
+
+classify.default <- function(...){
 }
 
 print <- function(...){
