@@ -2,8 +2,8 @@ Package: EasyUpliftTree
 Type: Package
 Title: Easy Uplift Tree Model
 Version: 0.0.1
-Date: 2012-09-23
+Date: 2013-02-19
 Author: Yohei Sato,Issei Kurahashi
 Maintainer: Yohei Sato <yokkuns@tkul.jp>
-Description: Uplift Tree Model for R
+Description: Uplift Tree Model for R. It is an implementation of a simple here. http://www.stochasticsolutions.com/pdf/sig-based-up-trees.pdf
 License: BSD
