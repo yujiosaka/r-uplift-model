@@ -1,6 +1,5 @@
 \name{buildUpliftTree}
 \alias{buildUpliftTree}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Build Uplift Tree
 }
@@ -10,7 +9,6 @@ Build Uplift Tree
 \usage{
 buildUpliftTree(y, treat, x, node.type = "top")
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{y}{
     response vector
@@ -26,7 +24,6 @@ buildUpliftTree(y, treat, x, node.type = "top")
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
     A UpliftTreeNode
