@@ -28,9 +28,9 @@ classify <- function(...){
 classify.default <- function(...){
 }
 
-print <- function(...){
-  UseMethod("print")
-}
+#print <- function(...){
+#  UseMethod("print")
+#}
 
 createUpliftTreeNodeData <- function(y,treat,x){
   ##
