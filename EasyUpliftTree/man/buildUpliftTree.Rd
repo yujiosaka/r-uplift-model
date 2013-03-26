@@ -23,77 +23,50 @@ buildUpliftTree(y, treat, x, node.type = "top")
     L or R
 }
 }
-\details{
-}
+
 \value{
     A UpliftTreeNode
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
 Yohei Sato
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{toDataFrame.UpliftTreeNode}},\code{\link{classify.UpliftTreeNode}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+\dontrun{
+library(survival)
+data(colon)
+sample.data <- na.omit(colon[colon$rx != "Lev" & colon$etype == 2, ])
+treat <- ifelse(sample.data$rx == "Lev+5FU", 1, 0)
+y <- ifelse(sample.data$status == 0, 1, 0)
+x <- sample.data[, c(4:9, 11:14)]
 
-## The function is currently defined as
-function (y, treat, x, node.type = "top") 
-{
-    data <- x
-    data$y <- y
-    data$treat <- treat
-    if (nrow(x) == 1) 
-        return(createUpliftTreeNode(data = data))
-    key.score.list <- lapply(names(x), function(key) {
-        u.data <- createUpliftTreeNodeData(y = y, treat = treat, 
-            x = x[, key])
-        if (class(x[, key]) == "numeric") {
-            values <- quantile(x[, key], probs = (1:10)/10)
-        }
-        else {
-            values <- unique(x[, key])
-        }
-        score.list <- lapply(values, function(value) {
-            my.data <- divideSet(u.data, value)
-            score <- interactionScore(my.data)
-            list(score = score, key = key, value = value, data = my.data)
-        })
-        score.list[order(sapply(score.list, function(l) l[[1]]), 
-            decreasing = T)][[1]]
-    })
-    best.score.list <- key.score.list[order(sapply(key.score.list, 
-        function(l) l[[1]]), decreasing = T)][[1]]
-    best.key <- best.score.list$key
-    best.value <- best.score.list$value
-    best.score <- best.score.list$score
-    best.split <- best.score.list$data$split
-    if (best.score > 0) {
-        r.branch <- buildUpliftTree(y = y[best.split == 1], treat = treat[best.split == 
-            1], x = x[best.split == 1, ], node.type = "R")
-        l.branch <- buildUpliftTree(y = y[best.split != 1], treat = treat[best.split != 
-            1], x = x[best.split != 1, ], node.type = "L")
-        return(createUpliftTreeNode(split.key = best.key, split.value = best.value, 
-            l.branch = l.branch, r.branch = r.branch, score = best.score, 
-            node.type = node.type))
-    }
-    else {
-        return(createUpliftTreeNode(data = data, node.type = node.type))
-    }
-  }
+x$v1 <- factor(x$sex)
+x$v2 <- factor(x$obstruct)
+x$v3 <- factor(x$perfor)
+x$v4 <- factor(x$adhere)
+x$v5 <- factor(x$differ)
+x$v6 <- factor(x$extent)
+x$v7 <- factor(x$surg)
+x$v8 <- factor(x$node4)
+
+index <- 1:nrow(x)
+train.index <- index[(index\%\%2 == 0)]
+test.index <- index[index\%\%2 != 0]
+
+y.train <- y[train.index]
+x.train <- x[train.index, ]
+treat.train <- treat[train.index]
+
+y.test <- y[test.index]
+x.test <- x[test.index, ]
+treat.test <- treat[test.index]
+
+uplift.tree <- buildUpliftTree(y.train, treat.train, x.train)
+print(uplift.tree)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+}
+

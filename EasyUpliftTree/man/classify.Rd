@@ -1,6 +1,5 @@
 \name{classify}
 \alias{classify}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
     classify new data
 }
@@ -10,45 +9,27 @@
 \usage{
 classify(...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
-  \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+  \item{\dots}{ Argument that corresponds the class}
 }
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+
 \value{
     class vector
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
 Yohei Sato
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{classify.UpliftTreeNode}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (...) 
-{
-    UseMethod("classify")
-  }
+\dontrun{
+treat.train <- treat[train.index]
+uplift.tree <- buildUpliftTree(y.train, treat.train, x.train)
+sapply(1:nrow(x.test), function(i) classify(uplift.tree, x.test[i, ]))
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+}
+
