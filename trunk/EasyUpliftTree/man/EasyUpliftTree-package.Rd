@@ -12,8 +12,8 @@ Easy Uplift Tree Model for R
 \tabular{ll}{
 Package: \tab EasyUpliftTree\cr
 Type: \tab Package\cr
-Version: \tab 0.0.1\cr
-Date: \tab 2012-09-23\cr
+Version: \tab 0.0.2\cr
+Date: \tab 2013-02-24\cr
 License: \tab BSD\cr
 }
 
@@ -27,8 +27,13 @@ http://stochasticsolutions.com/sbut.html
 }
 \keyword{ package }
 \seealso{
-
+  \code{\link{buildUpliftTree}},\code{\link{toDataFrame}},\code{\link{classify}}
 }
 \examples{
-
+\dontrun{
+    uplift.tree <- buildUpliftTree(y.train, treat.train, x.train)
+    print(uplift.tree)
+    uplift.df <- toDataFrame(uplift.tree)
+    x.test$node.type <- sapply(1:nrow(x.test), function(i) classify(uplift.tree, x.test[i, ]))
+}
 }

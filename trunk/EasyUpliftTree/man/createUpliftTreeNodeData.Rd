@@ -1,6 +1,5 @@
 \name{createUpliftTreeNodeData}
 \alias{createUpliftTreeNodeData}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
     create UpliftTreeNodeData
 }
@@ -10,7 +9,6 @@
 \usage{
 createUpliftTreeNodeData(y, treat, x)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{y}{
     response vector
@@ -22,26 +20,17 @@ createUpliftTreeNodeData(y, treat, x)
     variables
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+
 \value{
     UpliftTreeNodeData
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
 Yohei Sato
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{buildUpliftTree}},\code{\link{createUpliftTreeNode}}
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -56,7 +45,3 @@ function (y, treat, x)
     df
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

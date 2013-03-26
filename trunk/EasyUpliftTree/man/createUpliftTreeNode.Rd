@@ -1,6 +1,5 @@
 \name{createUpliftTreeNode}
 \alias{createUpliftTreeNode}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 create UpliftTreeNode
 }
@@ -10,13 +9,12 @@ create UpliftTreeNode
 \usage{
 createUpliftTreeNode(split.key = -1, split.value = NULL, l.branch = NULL, r.branch = NULL, data = NULL, score = NULL, node.type = "top")
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{split.key}{
-%%     ~~Describe \code{split.key} here~~
+    split key
 }
   \item{split.value}{
-%%     ~~Describe \code{split.value} here~~
+    split value
 }
   \item{l.branch}{
     UpliftTreeNode of left branch
@@ -25,35 +23,26 @@ createUpliftTreeNode(split.key = -1, split.value = NULL, l.branch = NULL, r.bran
     UpliftTreeNode of right branch
 }
   \item{data}{
-%%     ~~Describe \code{data} here~~
+    data
 }
   \item{score}{
-%%     ~~Describe \code{score} here~~
+    score
 }
   \item{node.type}{
     top or L or R
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+
 \value{
     A UpliftTreeNode
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
 Yohei Sato
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{buildUpliftTree}},\code{\link{createUpliftTreeNodeData}}
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -71,7 +60,3 @@ function (split.key = -1, split.value = NULL, l.branch = NULL,
     node
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
